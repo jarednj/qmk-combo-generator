@@ -1,0 +1,19 @@
+// Combos
+enum myCombos {
+{% for combo in combo_list %}
+   {{ combo.0 | upper }},
+{% endfor %}
+   COMBO_LENGTH // Only necessary for the combo_len var
+};
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+{% for combo in combo_list %}
+const uint16_t PROGMEM {{ combo | first | lower }}[] = { {% for item in combo %}{{ item | upper + ', ' if not loop.last and not loop.first }}{% endfor %}COMBO_END};
+{% endfor %}
+
+combo_t key_combos[] = {
+{% for combo in combo_list %}
+    [{{ combo.0 | upper }}] = COMBO({{ combo.0 | lower }}, {{ combo | last | upper }}),
+{% endfor %}
+};

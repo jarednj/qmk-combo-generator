@@ -1,0 +1,6 @@
+---
+# tasks file for qmk-combo-generator
+- name: Generate combos.c file
+  template:
+    src: combos.j2
+    dest: "{{ path_to_qmk_dir }}/keyboards/{{ path_to_keyboard }}"
