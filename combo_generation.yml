@@ -4,6 +4,6 @@
   gather_facts: false
   vars:
     path_to_qmk_dir: "{{ lookup('env', 'HOME') }}/qmk_firmware"
-    path_to_keyboard: splitkb/kyria/keymaps/aranii/combos.c
+    path_to_keyboard: a_dux/keymaps/aranii/combos.c
   roles:
     - role: qmk-combo-generator
